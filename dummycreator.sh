@@ -6,8 +6,8 @@ numberofchannels=2
 declare -a a0=("tvg-id-channel1" "Name Channel 1" "Program Tittle" "Creative Program Description")
 declare -a a1=("tvg-id-channel1" "Name Channel 1" "Program Tittle" "Creative Program Description")
 
-starttimes=("000000" "060000" "120000" "180000")
-endtimes=("060000" "120000" "180000" "235900")
+starttimes=("000000" "010000" "020000" "030000" "040000" "050000" "060000" "070000" "080000" "090000" "100000" "110000" "120000" "130000" "140000" "150000" "160000" "170000" "180000" "190000" "200000" "210000" "220000" "230000")
+endtimes=("010000" "020000" "030000" "040000" "050000" "060000" "070000" "080000" "090000" "100000" "110000" "120000" "130000" "140000" "150000" "160000" "170000" "180000" "190000" "200000" "210000" "220000" "230000" "235900")
 BASEPATH="/your/folder/path"
 DUMMYFILENAME=dummy.xml
 
