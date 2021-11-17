@@ -13,6 +13,7 @@ DUMMYFILENAME=dummy.xml
 
 		today=$(date +%Y%m%d)
 		tomorrow=$(date --date="+1 day" +%Y%m%d)
+		nextday=$(date --date="+2 day" +%Y%m%d)
 		# tomorrow=$(date -v+1d +%Y%m%d)  ## if running on MAC or BSD
 		echo '<?xml version="1.0" encoding="UTF-8"?>' > $BASEPATH/$DUMMYFILENAME
 		echo '<tv generator-info-name="mydummy" generator-info-url="https://null.null/">' >> $BASEPATH/$DUMMYFILENAME
@@ -33,13 +34,19 @@ DUMMYFILENAME=dummy.xml
 			title=a$i[2]
 			desc=a$i[3]
 			for j in {0..23}; do
-					echo '    <programme start="'$today${starttimes[$j]}' +0000" stop="'$today${endtimes[$j]}' +0000" channel="'${!tvgid}'">' >> $BASEPATH/$DUMMYFILENAME
+					echo '    <programme start="'$today${starttimes[$j]}' -0500" stop="'$today${endtimes[$j]}' -0500" channel="'${!tvgid}'">' >> $BASEPATH/$DUMMYFILENAME
 					echo '        <title lang="pt">'${!title}'</title>' >> $BASEPATH/$DUMMYFILENAME
 					echo '        <desc lang="pt">'${!desc}'</desc>' >> $BASEPATH/$DUMMYFILENAME
 					echo '    </programme>' >> $BASEPATH/$DUMMYFILENAME
 			done
 			for j in {0..23}; do
-					echo '    <programme start="'$tomorrow${starttimes[$j]}' +0000" stop="'$tomorrow${endtimes[$j]}' +0000" channel="'${!tvgid}'">' >> $BASEPATH/$DUMMYFILENAME
+					echo '    <programme start="'$tomorrow${starttimes[$j]}' -0500" stop="'$tomorrow${endtimes[$j]}' -0500" channel="'${!tvgid}'">' >> $BASEPATH/$DUMMYFILENAME
+					echo '        <title lang="pt">'${!title}'</title>' >> $BASEPATH/$DUMMYFILENAME
+					echo '        <desc lang="pt">'${!desc}'</desc>' >> $BASEPATH/$DUMMYFILENAME
+					echo '    </programme>' >> $BASEPATH/$DUMMYFILENAME
+			done
+		        for j in {0..23}; do
+					echo '    <programme start="'$nextday${starttimes[$j]}' -0500" stop="'$nextday${endtimes[$j]}' -0500" channel="'${!tvgid}'">' >> $BASEPATH/$DUMMYFILENAME
 					echo '        <title lang="pt">'${!title}'</title>' >> $BASEPATH/$DUMMYFILENAME
 					echo '        <desc lang="pt">'${!desc}'</desc>' >> $BASEPATH/$DUMMYFILENAME
 					echo '    </programme>' >> $BASEPATH/$DUMMYFILENAME
