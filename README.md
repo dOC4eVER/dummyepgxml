@@ -3,7 +3,7 @@
 ### This bash Script Creates a dummy epg for use with channels that always have the same program
 
 * You can add as many channels as you want, by adding more channel variables.
-* The Dummy will, by default, generate programs for the next 2 days, with intervals of 6 hours between programs.
+* The Dummy will, by default, generate programs for the next 6 days, with intervals of 1 hours between programs.
 
 
 ### How To Run:
