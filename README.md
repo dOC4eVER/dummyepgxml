@@ -4,7 +4,7 @@
 
 * You can add as many channels as you want, by adding more channel variables.
 * The Dummy will, by default, generate programs for the next 3 days, with intervals of 1 hours between programs.
-
+* Script is set for -0500 (EST) time you can change it by modifying the -0500 in the script to the appropriate timezone
 
 ### How To Run:
 * Fix the variables as you like
