@@ -16,7 +16,7 @@ DUMMYFILENAME=dummy.xml
 		tomorrow=$(date --date="+1 day" +%Y%m%d)
 		nextday=$(date --date="+2 day" +%Y%m%d)
 		# tomorrow=$(date -v+1d +%Y%m%d)  ## if running on MAC or BSD
-		echo '<?xml version="1.0" encoding="UTF-8"?>' > $BASEPATH/$DUMMYFILENAME
+		echo '<?xml version="1.0" encoding="ISO-8859-1"?>' > $BASEPATH/$DUMMYFILENAME
 		echo '<tv generator-info-name="mydummy" generator-info-url="https://null.null/">' >> $BASEPATH/$DUMMYFILENAME
         numberofiterations=$(($numberofchannels - 1))
         echo "Creating Dummy Epg ..."
