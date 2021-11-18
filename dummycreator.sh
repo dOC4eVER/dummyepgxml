@@ -11,6 +11,7 @@ endtimes=("010000" "020000" "030000" "040000" "050000" "060000" "070000" "080000
 BASEPATH="/your/folder/path"
 DUMMYFILENAME=dummy.xml
 
+		offset=$(TZ=EST date +%z)
 		today=$(date +%Y%m%d)
 		tomorrow=$(date --date="+1 day" +%Y%m%d)
 		nextday=$(date --date="+2 day" +%Y%m%d)
@@ -34,19 +35,19 @@ DUMMYFILENAME=dummy.xml
 			title=a$i[2]
 			desc=a$i[3]
 			for j in {0..23}; do
-					echo '    <programme start="'$today${starttimes[$j]}' -0500" stop="'$today${endtimes[$j]}' -0500" channel="'${!tvgid}'">' >> $BASEPATH/$DUMMYFILENAME
+					echo '    <programme start="'$today${starttimes[$j]}' '$offset'" stop="'$today${endtimes[$j]}' '$offset'" channel="'${!tvgid}'">' >> $BASEPATH/$DUMMYFILENAME
 					echo '        <title lang="en">'${!title}'</title>' >> $BASEPATH/$DUMMYFILENAME
 					echo '        <desc lang="en">'${!desc}'</desc>' >> $BASEPATH/$DUMMYFILENAME
 					echo '    </programme>' >> $BASEPATH/$DUMMYFILENAME
 			done
 			for j in {0..23}; do
-					echo '    <programme start="'$tomorrow${starttimes[$j]}' -0500" stop="'$tomorrow${endtimes[$j]}' -0500" channel="'${!tvgid}'">' >> $BASEPATH/$DUMMYFILENAME
+					echo '    <programme start="'$tomorrow${starttimes[$j]}' '$offset'" stop="'$tomorrow${endtimes[$j]}' '$offset'" channel="'${!tvgid}'">' >> $BASEPATH/$DUMMYFILENAME
 					echo '        <title lang="en">'${!title}'</title>' >> $BASEPATH/$DUMMYFILENAME
 					echo '        <desc lang="en">'${!desc}'</desc>' >> $BASEPATH/$DUMMYFILENAME
 					echo '    </programme>' >> $BASEPATH/$DUMMYFILENAME
 			done
 		        for j in {0..23}; do
-					echo '    <programme start="'$nextday${starttimes[$j]}' -0500" stop="'$nextday${endtimes[$j]}' -0500" channel="'${!tvgid}'">' >> $BASEPATH/$DUMMYFILENAME
+					echo '    <programme start="'$nextday${starttimes[$j]}' '$offset'" stop="'$nextday${endtimes[$j]}' '$offset'" channel="'${!tvgid}'">' >> $BASEPATH/$DUMMYFILENAME
 					echo '        <title lang="en">'${!title}'</title>' >> $BASEPATH/$DUMMYFILENAME
 					echo '        <desc lang="en">'${!desc}'</desc>' >> $BASEPATH/$DUMMYFILENAME
 					echo '    </programme>' >> $BASEPATH/$DUMMYFILENAME
